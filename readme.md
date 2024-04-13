@@ -3,16 +3,16 @@
 **Guide to connecting Docker, Flask and PgAdmin: Creating a Local Development Environment for Web Applications with a PostgreSQL Database.**
 
 ## Setup Docker Compose
-Docker Compose starts two containers
+Docker Compose starts two containers web & db services
 
 ### Docker Compose: docker-compose.yml
 In this file, we define two services: the **web service**, which is your Flask service, and the **db service**, which is your PostgreSQL database.
 
-- **web Service**
+- **web Service** 🌐
 
     In the **web service**, we define a `build context` for your **Flask** backend, specifying that we want to mount the ./back_end folder as /app in the container. This allows us to develop the backend code outside the container and execute it inside. In addition, we map port 5000 of the container to port 5000 of the host system to allow access to your Flask service.
 
-- **db service**
+- **db service** 🗃️
 
     In the **db service**, we simply define the postgres:16 image as the PostgreSQL database service. It exposes port 5432 inside the container and maps port 5433 of the host system to this port.<br>
     We also set `environment variables` for the user name (POSTGRES_USER), password (POSTGRES_PASSWORD) and database name (POSTGRES_DB) to configure the PostgreSQL database.
@@ -60,8 +60,9 @@ This file contains the list of Python dependencies needed to run the Flask appli
     docker-compose build web
     ```
     This step prepares the execution environment for the Flask application by installing the dependencies defined in the requirements.txt file and configuring the Flask server.
-    > [!IMPORTANT]
-    > It is important to note that the Flask service depends on the PostgreSQL (db) database service, so Docker Compose ensures that the database service is started before the Flask service.
+
+> [!IMPORTANT]
+> It is important to note that the Flask service depends on the PostgreSQL (db) database service, so Docker Compose ensures that the database service is started before the Flask service.
 
 ### ⬆️ UP the Docker image for the Flask (db 🗃️) service 🐋🐍
 
@@ -70,6 +71,37 @@ This file contains the list of Python dependencies needed to run the Flask appli
     docker-compose up web
     ```
     This command **starts the Flask service container** and connects it to the **PostgreSQL database**, allowing the application to communicate with the database.
+
+## 🐋Docker Compose & 🐘pgAdmin flowchart
+
+1) `docker-compose build web`
+
+![build_web](/back_end/assets/img/readme/0_DockerCompose_buildWeb.png)
+
+1) `docker-compose up web`
+
+![build_web](/back_end/assets/img/readme/4_DockerCompose_UpWeb.png)
+
+3) create new server in pgAdmin
+
+![new_server](/back_end/assets/img/readme/1_serverCreate.png)
+
+4) register server: enter the name, enter Host address, Port (default pgAdmin "5432" but enter the same port in docker-compose.yml), name DB, Username (default pgAdmin "postgres"), password (same password in docker-compose.yml environment: POSTGRES_PASSWORD)
+
+![tab_general](/back_end/assets/img/readme/2_tabGeneral.png)
+![tab_connection](/back_end/assets/img/readme/3_tabConnection.png)
+
+5) server created!!! 🌴🐘🌴 🌊🐋🌊
+
+![tab_connection](/back_end/assets/img/readme/6_serverSQL_RUN.png)
+
+>[!CAUTION]
+> First the Docker Compose image **must be built and run**, and only then can the server be created in pgAdmin, otherwise it would lead to errors
+
+![tab_connection](/back_end/assets/img/readme/4_Error_beforeDockerUpCompose.png)
+
+
+
 
 
 
