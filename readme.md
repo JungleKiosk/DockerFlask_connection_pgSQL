@@ -78,7 +78,7 @@ This file contains the list of Python dependencies needed to run the Flask appli
 
 ![build_web](/back_end/assets/img/readme/0_DockerCompose_buildWeb.png)
 
-1) `docker-compose up web`
+2) `docker-compose up web`
 
 ![build_web](/back_end/assets/img/readme/4_DockerCompose_UpWeb.png)
 
