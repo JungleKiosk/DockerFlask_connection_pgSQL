@@ -80,7 +80,7 @@ This file contains the list of Python dependencies needed to run the Flask appli
 
 2) `docker-compose up web`
 
-![build_up](/back_end/assets/img/readme/4_DockerCompose_upWeb.png)
+![build_up](/back_end/assets/img/readme/4_DockerCompose_UpWeb.png)
 
 
 3) create new server in pgAdmin
@@ -94,12 +94,12 @@ This file contains the list of Python dependencies needed to run the Flask appli
 
 5) server created!!! 🌴🐘🌴 🌊🐋🌊
 
-![tab_connection](/back_end/assets/img/readme/6_serverSQL_RUN.png)
+![server_run](/back_end/assets/img/readme/6_serverSQL_RUN.png)
 
 >[!CAUTION]
 > First the Docker Compose image **must be built and run**, and only then can the server be created in pgAdmin, otherwise it would lead to errors
 
-![tab_connection](/back_end/assets/img/readme/4_Error_beforeDockerUpCompose.png)
+![error](/back_end/assets/img/readme/7_Error.png)
 
 
 
