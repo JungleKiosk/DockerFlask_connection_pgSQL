@@ -80,6 +80,7 @@ This file contains the list of Python dependencies needed to run the Flask appli
 
 2) `docker-compose up web`
 
+![build_up](/back_end/assets/img/readme/0_DockerCompose_upWeb.png)
 
 
 3) create new server in pgAdmin
